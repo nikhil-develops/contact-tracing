@@ -1,0 +1,7 @@
+**** Problem to show active conatct count in the account object in active contact field using trigger.****
+
+My approach : Create a trigger on Contact object when any Contact is Insert,Updated,Deleted or Undeleted we need to update the count of Active Contact in the account table.
+
+
+->Create custom fields in both the Objects Active and Active contacts in both contacts and account objects respectively.
+->

@@ -24,4 +24,16 @@ public with sharing class CTPersonController {
         }
         return null;
    }
+   /**
+    * returs Map<String,Integer>
+    */
+   public static Map<String,Integer> getHealthStatusCount(){
+     Map<String,Integer> peopleMap=new Map<String,Integer>();
+     String soql='SELECT Health_Status__c, Count(Id) personCount FROM Person__c GROUP BY Health_Status__c';
+     List<AggregateResult> peopleCount= Database.query(soql);
+     for(AggregateResult people:peopleCount){
+          peopleMap.put((String) people.get('Health_Status__c'),(Integer) people.get('personCount'));
+     }
+     return peopleMap;
+   }
 }
